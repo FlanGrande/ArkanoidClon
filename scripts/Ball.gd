@@ -25,17 +25,24 @@ func send_to_center():
 	
 	pass
 
+#Definitely needs better collision checks, as in, actual physics.
 func _on_Area2D_body_entered(body):
-	if(body.is_in_group("block")):
+	if(body.is_in_group("blocks")):
 		speed.y = -speed.y
-		
+		body.destroy()
+	
 	if(body.is_in_group("top_bound")):
 		speed.y = -speed.y
-		
+	
 	if(body.is_in_group("side_bounds")):
 		speed.x = -speed.x
 	
 	if(body.is_in_group("player_bars")):
+		if(position.x < body.position.x):
+			speed.x = -5
+		else:
+			speed.x = 5
+		
 		speed.y = -speed.y
 	
 	pass # Replace with function body.
