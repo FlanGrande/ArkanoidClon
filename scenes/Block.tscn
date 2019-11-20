@@ -6,6 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
+shader_param/color = null
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 5 )
@@ -14,6 +15,14 @@ extents = Vector2( 32, 5 )
 "blocks",
 ]]
 script = ExtResource( 1 )
+color = Color( 0, 1, 0.109804, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -32.0
+margin_top = -5.0
+margin_right = 32.0
+margin_bottom = 5.0
+color = Color( 0.14902, 1, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
@@ -21,4 +30,5 @@ scale = Vector2( 1, 0.15625 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 2 )
